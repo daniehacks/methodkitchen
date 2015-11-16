@@ -2,15 +2,21 @@
   <strong>Title:</strong>
   <%= @recipe.title %>
 </p>
-<p>
-  <strong>Ingredients:</strong>
-  <%= @recipe.ingredient %>
-</p>
 
-<p>
-  <strong>Instructions:</strong>
-  <%= @recipe.instruction %>
-</p>
+<h2>Ingredients:</h2>
+<%= @recipe.ingredients.each do |ingredient| %>
+  <p>
+    <strong>Ingredient</strong>
+    <%= ingredient.quantity %>
+    <%= ingredient.description %>
+  </p>
+
+<h2>Instructions:</h2>
+<%= @recipe.instructions.each do |instruction| %>
+  <p>
+    <strong>Instructions</strong>
+    <%= instruction.description %>
+  </p>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
