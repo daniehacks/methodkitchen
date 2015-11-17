@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.ingredients.build
   end
 
   def edit
@@ -45,6 +46,6 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:title, :string, :ingredient, :string, :instruction, :text)
+      params.require(:recipe).permit(:title, :string)
     end
 end

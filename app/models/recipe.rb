@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
-  validates :title, presence: true
-  has_many :ingredient
-  has_many :instruction
+  has_many :ingredients, dependent: :destroy
+  # has_many :instruction
+
+  validates_presence_of :title
 end
