@@ -4,19 +4,25 @@
 </p>
 
 <h2>Ingredients:</h2>
-<%= @recipe.ingredients.each do |ingredient| %>
-  <p>
-    <strong>Ingredient</strong>
-    <%= ingredient.quantity %>
-    <%= ingredient.description %>
-  </p>
+<% if @recipe.ingredients.any? %>
+  <%= @recipe.ingredient.each do |ingredient| %>
+    <p>
+      <strong>Ingredient</strong>
+      <%= ingredient.quantity %>
+      <%= ingredient.description %>
+    </p>
+  <% end %>
+<% end %>
 
 <h2>Instructions:</h2>
-<%= @recipe.instructions.each do |instruction| %>
-  <p>
-    <strong>Instructions</strong>
-    <%= instruction.description %>
-  </p>
+<% if @recipe.instructions.any? %>
+  <%= @recipe.instruction.each do |instruction| %>
+    <p>
+      <strong>Instructions</strong>
+      <%= instruction.description %>
+    </p>
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

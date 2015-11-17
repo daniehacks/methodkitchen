@@ -13,13 +13,16 @@
       <td><%= recipe.title %></td>
       <td><%= recipe.ingredient %></td>
       <td><%= recipe.instruction %></td>
-      <td><%= link_to 'Show', recipe_path(recipe) %></td>
-      <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+      <td><%= link_to 'Show', recipe_path(recipe), class: 'btn btn-primary btn-xs' %></td>
+      <td><%= link_to 'Edit', edit_recipe_path(recipe), class: 'btn btn-info btn-xs' %></td>
       <td><%= link_to 'Destroy', recipe_path(recipe),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' },
+              class: 'btn btn-danger btn-xs' %></td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<%= link_to new_recipe_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Recipe
+<% end %>
