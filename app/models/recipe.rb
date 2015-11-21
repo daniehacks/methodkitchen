@@ -1,6 +1,9 @@
 class Recipe < ActiveRecord::Base
-  has_many :ingredients, dependent: :destroy
-  # has_many :instruction
+  has_many :quantities
+  has_many :ingredients, through: :quantities
 
-  validates_presence_of :title
+  accepts_nested_attributes_for :quantities,
+           reject_if: :all_blank,
+           allow_destroy: true
+  accepts_nested_attributes_for :ingredients
 end

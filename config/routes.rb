@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   resources :recipes do
     resources :ingredients
-    # resources :instructions
   end
 
   # Example of regular route:

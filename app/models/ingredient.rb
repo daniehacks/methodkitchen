@@ -1,4 +1,5 @@
 class Ingredient < ActiveRecord::Base
-  belongs_to :recipe
-  validates_presence_of :description
+  has_many :quantities
+  has_many :recipes, through: :quantities
+  validates_presence_of :name
 end
