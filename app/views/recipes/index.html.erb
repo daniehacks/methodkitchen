@@ -1,23 +1,9 @@
 <h1> My Recipes</h1>
 
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Ingredients</th>
-  </tr>
-
   <% @recipes.each do |recipe| %>
     <tr>
-      <td><%= recipe.title %></td>
-
-s
-      <td><%= recipe.ingredients %></td>
-      <td><%= link_to 'Show', recipe_path(recipe), class: 'btn btn-primary btn-xs' %></td>
-      <td><%= link_to 'Edit', edit_recipe_path(recipe), class: 'btn btn-info btn-xs' %></td>
-      <td><%= link_to 'Destroy', recipe_path(recipe),
-              method: :delete,
-              data: { confirm: 'Are you sure?' },
-              class: 'btn btn-danger btn-xs' %></td>
+      <td><%= link_to "#{recipe.title}", recipe_path(recipe) %></td>
     </tr>
   <% end %>
 </table>
